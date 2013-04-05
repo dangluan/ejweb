@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>System down for maintenance</title>
+
+  <style type="text/css">
+    body {
+      background: #efefef;
+    }
+  
+    div.outer {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 500px;
+      height: 300px;
+      margin-left: -260px; 
+      margin-top: -150px;
+    }
+    
+    a {
+      color: #315A9B;
+    }
+		div.sticky-notes {
+			text-align: center; 
+			width: 246px; 
+			margin: 0 auto;
+			color: #3f3f3f; 
+			font-size: 14px; 
+			line-height: 20px;
+			font-weight:bold; 
+			font-family: Arial; 
+			padding: 20px; 
+			line-height:25px; 
+			height: 260px; 
+			background: url(/assets/sticky_note.png) no-repeat;
+			padding-top: 60px;
+		}
+		
+		div.sticky-notes-text {
+			width: 197px;
+			font-family: "comic sans ms", "Arial";
+			font-weight: normal;			
+		}
+		
+		.rotate {
+			-webkit-transform: rotate(3deg);
+			-moz-transform: rotate(3deg);
+			-ms-transform: rotate(3deg);
+			-o-transform: rotate(3deg);
+			filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+		}
+  </style>
+</head>
+
+<body>
+
+  <div class="outer">
+      <div class='sticky-notes'>
+				<div class='sticky-notes-text rotate'>
+          We are currently down for <%= reason ? reason : "maintenance" %> as of <%= Time.now.utc.strftime("%H:%M %Z") %>. 
+          We expect things to be back to normal <%= deadline ? "by #{deadline}" : 'shortly' %>.
+          Sorry for the inconvenience.
+				</div>
+      </div>
+  </div>
+
+</body>
+</html>
