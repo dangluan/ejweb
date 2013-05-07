@@ -28,7 +28,7 @@ staging:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: ejweb_staging
+  database: db/production.sqlite3
   pool: 5
   username: root
   password:
