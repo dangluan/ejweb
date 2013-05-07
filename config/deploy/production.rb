@@ -1,4 +1,4 @@
-server "192.168.1.150", :app, :web, :db, :primary => true
+server "192.168.2.150", :app, :web, :db, :primary => true
 set :rails_env, "production"
 set :user, 'rubyviet'
 set :branch, :master
