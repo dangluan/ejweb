@@ -2,8 +2,12 @@ require 'bundler/capistrano'
 require 'capistrano/ext/multistage'
 # rbenv
 # rubifyvn is the user used to deploy
+# set :default_environment, {
+#   "PATH" => "/home/rubyviet/.rbenv/shims:/home/rubyviet/.rbenv/bin:$PATH"
+# }
+
 set :default_environment, {
-  "PATH" => "/home/rubyviet/.rbenv/shims:/home/rubyviet/.rbenv/bin:$PATH"
+      'PATH' => "/opt/ruby-enterprise/bin/:$PATH"
 }
 
 default_run_options[:pty] = true
