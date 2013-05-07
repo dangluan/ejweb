@@ -100,23 +100,3 @@ namespace :deploy do
   end
 end
 
-
-# namespace :delayed_job do
-#   desc "Start delayed_job process"
-#   task :start do
-#     p "Starting Delayed Job"
-#     run "cd #{current_path} && RAILS_ENV=#{rails_env} script/delayed_job start"
-#   end
-# 
-#   desc "Stop delayed_job process"
-#   task :stop do
-#     p "Stopping Delayed Job"
-#     run "cd #{current_path} && RAILS_ENV=#{rails_env} script/delayed_job stop"
-#   end
-# 
-#   desc "Restart delayed_job process"
-#   task :restart do
-#     p "Restarting Delayed Job"
-#     run "cd #{current_path} && RAILS_ENV=#{rails_env} script/delayed_job restart"
-#   end
-# end
