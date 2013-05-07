@@ -1,10 +1,9 @@
 require 'bundler/capistrano'
 require 'capistrano/ext/multistage'
-
 # rbenv
 # rubifyvn is the user used to deploy
 set :default_environment, {
-  "PATH" => "/home/rubifyvn/.rbenv/shims:/home/rubifyvn/.rbenv/bin:$PATH"
+  "PATH" => "/home/rubyviet/.rbenv/shims:/home/rubyviet/.rbenv/bin:$PATH"
 }
 
 default_run_options[:pty] = true
@@ -34,12 +33,8 @@ end
 namespace :deploy do
   desc "Zero-downtime restart of Unicorn"  
   task :restart, :roles => :web do
-    if remote_file_exists?("#{shared_path}/pids/ejweb.pid")
-      run "kill -s USR2 `cat #{shared_path}/pids/ejweb.pid`"
-    else
-      run "cd #{current_path} ; bundle exec unicorn -c config/unicorn.rb -D -E #{rails_env}"
-    end
-    # run "cd #{current_path} ; bundle exec unicorn -c config/unicorn.rb -D -E #{rails_env}"
+    unicorn_pid = "#{shared_path}/pids/ejweb.pid"
+    run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 \`cat #{unicorn_pid}\`; else cd #{current_path} && bundle exec unicorn -c config/unicorn.rb -D -E #{rails_env}; fi"
   end
   
   desc "Start unicorn"
