@@ -17,6 +17,8 @@ set :stages, ["staging", "production"]
 set :default_stage, "staging"
 set :use_sudo,	false
 set :deploy_via, :remote_cache
+ssh_options[:keys] = %w(/home/dangluan/.ssh/id_rsa)
+set :ssh_options, { :forward_agent => true}
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
