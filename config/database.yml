@@ -25,7 +25,7 @@ production:
   timeout: 5000
 
 staging:
-  adapter: sqlite3
+  adapter: mysql2
   encoding: utf8
   reconnect: false
   database: db/production.sqlite3
